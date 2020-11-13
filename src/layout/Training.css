@@ -1,0 +1,34 @@
+
+.video {
+    width: 95%;
+    height: 350px;
+}
+.training {
+    overflow-x: hidden;
+}
+
+/*  Mobile  */
+
+@media only screen and (max-width: 770px) {
+    .training {
+        width: 90vw !important;
+        overflow-x: hidden !important;
+    }
+    .video {
+        height: 250px !important;
+        width: 300px !important;
+        margin-left: -20px !important;
+    }
+    .training>h3 {
+        max-width: 300px !important;
+        margin-top: -20px;
+    }
+}
+
+/*  4K Screens  */
+
+@media only screen and (min-width: 2100px) {
+    .video {
+        height: 450px;
+    }
+}

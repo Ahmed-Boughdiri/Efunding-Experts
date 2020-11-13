@@ -1,0 +1,25 @@
+
+/*  Mobile  */
+
+@media only screen and (max-width: 770px) {
+    .refferal {
+        max-width: 100vw !important;
+        overflow-x: hidden;
+        margin-left: -20px;
+    }
+    .refferal>h3 {
+        margin-top: -20px !important;
+    }
+    .card-container {
+        margin-left: 10px !important;
+        margin-bottom: 30px;
+    }
+    .card-container2 {
+        margin-left: 0px !important;
+    }
+    #validationFormik107 {
+        width: 138px !important;
+        overflow: hidden;
+    }
+}
+

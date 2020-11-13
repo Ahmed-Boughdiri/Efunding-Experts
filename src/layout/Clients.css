@@ -1,0 +1,34 @@
+
+.table-container {
+    width: 98%;
+    min-width: 1500px !important;
+}
+.more-info-section {
+    min-width: 130px !important;
+}
+.date-created-section {
+    min-width: 130px !important;
+}
+.phone-section {
+    min-width: 150px !important;
+}
+.approximate-funding-section {
+    min-width: 200px !important;
+}
+.funding-amount-section {
+    min-width: 250px !important;
+}
+.total-commision-section {
+    min-width: 200px !important;
+}
+.commision-collected-section {
+    min-width: 200px !important;
+}
+
+/*  Mobile  */
+
+@media only screen and (max-width: 770px) {
+    .clients>h3 {
+        margin-top: -20px !important;
+    }
+}

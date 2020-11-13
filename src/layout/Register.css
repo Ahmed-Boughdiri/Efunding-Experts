@@ -1,0 +1,102 @@
+
+.register {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+.register-form {
+    background-color: #fff !important;
+    border: 1px solid #ddd;
+    width: 80%;
+    max-width: 900px;
+    text-align: left;
+    margin-top: 1000px
+}
+.register-title {
+    color: #2f4f96 !important;
+    font-size: 3em;
+}
+.register-form-tail {
+    width: 108%;
+    margin-left: -4%;
+    margin-bottom: -70px;
+}
+.login-button {
+    border: 1px solid #ccc !important;
+}
+
+/*  Mobile  */
+
+@media only screen and (max-width: 600px) {
+    .register-form {
+        width: 100%;
+        margin-top: 2050px
+    }
+    .login-button,
+    .register-button {
+        width: 100% !important;
+    }
+    .register-button {
+        margin-top: 10px
+    }
+    .register-form-tail {
+        width: 112%;
+        margin-left: -6%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .register-form {
+        margin-top: 1800px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .register-form {
+        margin-top: 1970px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .register-form {
+        margin-top: 2030px;
+    }
+}
+
+/*  Tablet  */
+
+@media only screen and (max-width: 800px) {
+    .register-form {
+        margin-top: 1300px;
+    }
+    .register-form-tail {
+        width: 112%;
+        margin-left: -6%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .register-form {
+        margin-top: 1000px;
+    }
+    .register-form-tail {
+        width: 109%;
+        margin-left: -4.5%;
+    }
+}
+
+/*  4K Screens  */
+
+@media only screen and (min-width: 2000px) {
+    .register-form {
+        margin-top: 0px;
+    }
+    .register-form-tail {
+        width: 107.5%;
+        margin-left: -4%;
+    }
+}

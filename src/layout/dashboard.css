@@ -1,0 +1,23 @@
+.dashboard {
+    overflow-x: hidden;
+}
+
+/*  Mobile  */
+
+@media only screen and (max-width: 770px) {
+    .dashboard {
+        width: 100vw !important;
+        margin-left: -20px;
+        padding-left: 30px !important;
+        padding-bottom: 30px;
+    }
+    .dashboard>h3 {
+        padding-left: 0 !important;
+    }
+    .card {
+        width: 100%;
+    }
+    .recent-clients {
+        display: none !important;
+    }
+}

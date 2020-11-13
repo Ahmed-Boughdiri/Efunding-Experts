@@ -1,0 +1,25 @@
+
+.remove-underline:hover {
+    text-decoration: none;
+}
+.breakpoint {
+    display: none;
+}
+
+/*  Mobile  */
+
+@media only screen and (max-width: 770px) {
+    .breakpoint {
+        display: block;
+    }
+    .pdf-icon {
+        display: none;
+    }
+    .card {
+        margin-left: -8px !important;
+    }
+    .contracts {
+        padding-bottom: 30px;
+    }
+}
+

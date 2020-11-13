@@ -1,0 +1,28 @@
+
+.login {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toaster-header {
+    background-color: #f9f9f9 !important;
+}
+.register-btn {
+    border: 1px solid rgba(0, 0, 0, 0.2) !important
+}
+.toaster-tail {
+    background-color: #f9f9f9 !important;
+    border-top: 1px solid #ddd;
+    margin-top: -30px ;
+}
+
+@media only screen and (max-width: 500px) {
+    .register-btn,
+    .login-btn {
+        width: 95%;
+        margin-top: 10px;
+    }
+}
