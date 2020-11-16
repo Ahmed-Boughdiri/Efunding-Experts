@@ -42,23 +42,28 @@
 .remove-underline:hover {
     text-decoration: none;
 }
+.the-logo {
+    transform: translate(5px,-5px);
+}
 
 /*  Mobile  */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
     .nav-bar {
         width: 100vw !important;
     }
     button.navbar-toggler.collapsed {
-        display: none;
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        margin: 0 !important;
     }
     .goback {
         display: none;
     }
-    /* .brand-link {
-        display: none;
-    } */
     div.navbar-collapse.collapse.show {
+        display: none;
         background-color: red !important;
         margin-top: 15px;
     }

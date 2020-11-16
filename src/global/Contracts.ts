@@ -1,5 +1,11 @@
 
-export const contracts = [
+export interface ContractProps {
+    backendFee: Number,
+    onlineVersionLink: String,
+    downloadLink: String
+}
+
+export const contracts:ContractProps[] = [
     {
         backendFee: 7,
         onlineVersionLink: "#!",
@@ -32,7 +38,13 @@ export const contracts = [
     },
 ]
 
-export const applications = [
+export interface ApplicationProps {
+    name: String,
+    onlineVersionLink: String,
+    downloadLink: String
+}
+
+export const applications:ApplicationProps[] = [
     {
         name: "Business Revenue App -",
         onlineVersionLink: "#!",
@@ -55,7 +67,13 @@ export const applications = [
     },
 ]
 
-export const forms = [
+export interface FormProps {
+    name: String,
+    onlineVersionLink: String,
+    downloadLink: String
+}
+
+export const forms:FormProps[] = [
     {
         name: "Credit Card Authorization Form -",
         onlineVersionLink: "#!",

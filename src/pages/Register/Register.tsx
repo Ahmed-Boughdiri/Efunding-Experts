@@ -1,16 +1,17 @@
 import React from "react";
-import "../layout/Register.css";
-import { Jumbotron, Form, Row, Col, Card, Container, Button } from "react-bootstrap";
+import "../../layout/Register.css";
+import { Jumbotron, Form, Row, Col, Card, Container, Button, Image } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const Register = () =>{
     return (
         <div className="register">
             <Jumbotron className="register-form">
                 <Container>
-                    <div>
-                        {/* Logo */}
+                    <div className="logo-container">
+                        <Image src={logo} height={60} className="mb-5 d-flex" />
                     </div>
                     <h1 className="text-left register-title">Partners</h1>
                     <h4 className="register-desc">

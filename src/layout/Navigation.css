@@ -48,12 +48,21 @@
     text-decoration: none;
 }
 
+.openNav {
+    display: block;
+}
+
 /*  Mobile  */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 770px) {
     .navigation {
-        width: 100%;
-        display: none;
+        width: 100vw !important;
+        height: calc(100vh - 60px) !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: block;
+        z-index: 999;
     }
     .navigation-link {
         height: 60px !important;

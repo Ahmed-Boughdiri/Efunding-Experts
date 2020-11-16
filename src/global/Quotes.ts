@@ -1,4 +1,14 @@
-export const quotes = [
+export interface QuoteProps {
+  name: String;
+  phone: String | undefined;
+  email: String;
+  status: String;
+  dateCreated: Date;
+  approximateFundingQuote: Number;
+  quoteNotes: String;
+}
+
+export const quotes: QuoteProps[] = [
   {
     name: "Marcia Jones",
     phone: undefined,

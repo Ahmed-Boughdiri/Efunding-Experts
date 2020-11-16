@@ -1,6 +1,12 @@
 .dashboard {
     overflow-x: hidden;
 }
+.commision-paid {
+    margin-top: -15px;
+}
+.commision {
+    margin-top: -300px;
+}
 
 /*  Mobile  */
 
@@ -19,5 +25,14 @@
     }
     .recent-clients {
         display: none !important;
+    }
+    .total-title {
+        display: none;
+    }
+    .total-text {
+        display: none;
+    }
+    .commision-container {
+        margin-top: 300px;
     }
 }
