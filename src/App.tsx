@@ -9,13 +9,18 @@ import Training from "./pages/Training/Training";
 import Contracts from "./pages/Contracts/Contracts";
 import Refferal from "./pages/Refferal/Refferal";
 import Edit from "./pages/Edit/Edit";
+import Request from "./pages/Request/Request";
+import Membership from "./pages/Membership/Membership";
+import Preview from "./pages/Membership/Preview";
+import Home from "./pages/Home/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/quotes" component={Quotes} />
         <Route exact path="/dashboard" component={Dashboard} />
@@ -24,6 +29,9 @@ function App() {
         <Route exact path="/contracts" component={Contracts} />
         <Route exact path="/refferal" component={Refferal} />
         <Route exact path="/edit" component={Edit} />
+        <Route exact path="/request" component={Request} />
+        <Route exact path="/membership/training" component={Membership} />
+        <Route exact path="/membership/training/preview" component={Preview} />
       </Switch>
     </Router>
   );

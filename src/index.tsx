@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+import { combineReducers, createStore } from "redux";
+import IDReducer from "./reducers/IDReducer";
+import QuoteIDReducer from "./reducers/QuoteIDReducer";
+import CourseReducer from "./reducers/CourseReducer";
+import EditInfoReducer from "./reducers/EditInfoReducer";
+import EditDataReducer from "./reducers/EditData";
+
+const store = createStore(combineReducers({
+  idReducer: IDReducer,
+  quoteIDReducer: QuoteIDReducer,
+  courseReducer: CourseReducer,
+  EditInfoReducer,
+  EditDataReducer
+}))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

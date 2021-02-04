@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Form, Row, Col } from "react-bootstrap";
 
-const Featured: React.FC<{}> = () => {
+const Featured: React.FC<{ editData:any }> = ({ editData }) => {
   return (
     <Card>
       <Card.Header as="h5">Featured</Card.Header>
@@ -16,7 +16,7 @@ const Featured: React.FC<{}> = () => {
                 <Form.Control
                   id="disabledTextInput"
                   placeholder=""
-                  defaultValue="3500"
+                  defaultValue={editData.ApproxQuoteAmount || ""}
                 />
               </fieldset>
             </Col>
@@ -76,7 +76,7 @@ const Featured: React.FC<{}> = () => {
                 <Form.Control
                   id="disabledTextInput"
                   placeholder=""
-                  defaultValue="0"
+                  defaultValue={editData.TotalCommissions || ""}
                 />
               </fieldset>
             </Col>
@@ -91,7 +91,7 @@ const Featured: React.FC<{}> = () => {
                 <Form.Control
                   id="disabledTextInput"
                   placeholder=""
-                  defaultValue="0"
+                  defaultValue={editData.CommissionsCollected || ""}
                 />
               </fieldset>
             </Col>

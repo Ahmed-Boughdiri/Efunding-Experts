@@ -9,7 +9,9 @@ const Navigation: React.FC<{
   activeTab: String | undefined;
   openNav: Boolean;
   setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ activeTab, openNav, setOpenNav }) => {
+  email: String,
+  userName: String
+}> = ({ activeTab, openNav, setOpenNav, email, userName }) => {
   const tabs = state.tabs;
   const handlePC = () => {
     if (window.screen.width > 770) {
@@ -26,8 +28,8 @@ const Navigation: React.FC<{
       {openNav && (
         <div className="navigation">
           <div className="user-info">
-            <p className="font-weight-bold username">Jose Baeza</p>
-            <p className="user-email">jb@fundingexperts.com</p>
+            <p className="font-weight-bold username">{userName}</p>
+            <p className="user-email">{email}</p>
           </div>
           <div className="navigation-title">
             <p>Navigation</p>

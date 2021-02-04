@@ -5,19 +5,19 @@ export interface VideoProps {
 
 export const videos: VideoProps[] = [
   {
-    link: "https://www.youtube.com/embed/OLHdzLpMg-s",
+    link: "https://player.vimeo.com/video/378020511",
     id: 0,
   },
   {
-    link: "https://www.youtube.com/embed/qxOeWuAHOiw",
+    link: "https://player.vimeo.com/video/378013889",
     id: 1,
   },
   {
-    link: "https://www.youtube.com/embed/ycPr5-27vSI",
+    link: "https://player.vimeo.com/video/412216015",
     id: 2,
   },
   {
-    link: "https://www.youtube.com/embed/gZnOVoG_Ed4",
+    link: "https://player.vimeo.com/video/376201056",
     id: 3,
   },
 ];

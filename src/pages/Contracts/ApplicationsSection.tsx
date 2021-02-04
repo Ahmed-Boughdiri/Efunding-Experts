@@ -2,49 +2,58 @@ import React from "react";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col, Row } from "react-bootstrap";
-import { applications, ApplicationProps } from "../../global/Contracts";
 import "../../layout/Contracts.css";
+import { ContractsProps } from "../../@types/others/contract";
 
-const ApplicationsSection: React.FC<{}> = () => {
+const ApplicationsSection: React.FC<{ applications:ContractsProps[] }> = ({ applications }) => {
+  const handleDownloadPDF = async(fileName:String) =>{
+    window.open(`https://efundingexperts.herokuapp.com/report/download/${fileName}`)
+  }
   return (
     <div>
-      {applications.map((app: ApplicationProps) => (
-        <Row style={{ marginBottom: 15 }}>
-          <Col md={4}>
-            <h6 className="mt-1">{app.name}</h6>
-          </Col>
-          <Col md={5}>
-            <a
-              href={app.onlineVersionLink as string}
-              className="remove-underline"
-            >
-              <h6 className="text-primary mt-1">
-                Click here for an online version (preffered)
-              </h6>
-            </a>
-          </Col>
-          <Col md={3}>
-            <Row>
-              <Col sm={7}>
-                <a
-                  href={app.downloadLink as string}
-                  className="remove-underline"
-                >
-                  <h6 className="text-dark mt-1">Download PDF</h6>
-                </a>
-              </Col>
-              <Col className="pdf-icon">
-                <a
-                  href={app.downloadLink as string}
-                  className="remove-underline"
-                >
-                  <FontAwesomeIcon icon={faFilePdf} size={"lg"} color="#000" />
-                </a>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      ))}
+      {
+        applications && applications.map(app => (
+          <Row style={{ marginBottom: 15 }}>
+            <Col md={4}>
+              <h6 className="mt-1">{app.title}</h6>
+            </Col>
+            <Col md={5}>
+              <a
+                href={"#!"}
+                rel="noreferrer"
+                target="_blank"
+                className="remove-underline"
+                onClick={() =>window.open(app.previewLink as string)}
+              >
+                <h6 className="text-primary mt-1">
+                  Click here for an online version (preffered)
+                </h6>
+              </a>
+            </Col>
+            <Col md={3}>
+              <Row>
+                <Col sm={7}>
+                  <a
+                    href={"#!"}
+                    className="remove-underline"
+                    onClick={() =>handleDownloadPDF(app.contract)}
+                  >
+                    <h6 className="text-dark mt-1">Download PDF</h6>
+                  </a>
+                </Col>
+                <Col className="pdf-icon">
+                  <a
+                    href={"#!"}
+                    className="remove-underline"
+                  >
+                    <FontAwesomeIcon icon={faFilePdf} size={"lg"} color="#000" />
+                  </a>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        ))
+      }
     </div>
   );
 };

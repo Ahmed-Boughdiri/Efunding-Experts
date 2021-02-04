@@ -1,0 +1,22 @@
+
+export interface RefferalProps {
+    Adress: String,
+    City: String,
+    DateCreated: String,
+    DesiredAmountOfFunding: String,
+    DoTheyAlreadyHaveABusiness: String,
+    Email: String,
+    FirstName: String,
+    Income: Number,
+    LastName: String,
+    Notes: String,
+    Phone: Number,
+    QuoteID: String,
+    State: String,
+    Status: String,
+    WhatsMainPurposeOfFund: String,
+    Zip: String,
+    creditReport: String,
+    nameOfTheBusiness: String,
+    _id: String,
+}

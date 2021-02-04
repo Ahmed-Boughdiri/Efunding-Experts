@@ -10,14 +10,24 @@ interface ClientProps {
     status: String,
     dateCreated: Date,
     approximateFundingQuote: Number | undefined,
-    appsProcessing: Number | undefined,
-    appsApproved: Number | undefined,
     fundingAmountSoFar: Number | undefined,
     totalCommision: Number | undefined,
-    commisionCollected: Number | undefined
+    commisionCollected: Number | undefined,
+    onClick: () => void
 }
 
-const Client:React.FC<ClientProps> = ({ name, email, phone, status, dateCreated, approximateFundingQuote, appsProcessing, appsApproved, fundingAmountSoFar, totalCommision, commisionCollected }) =>{
+const Client:React.FC<ClientProps> = ({ 
+    name, 
+    email, 
+    phone, 
+    status, 
+    dateCreated, 
+    approximateFundingQuote, 
+    fundingAmountSoFar, 
+    totalCommision, 
+    commisionCollected, 
+    onClick 
+}) =>{
     return (
         <tr>
             <td>{name}</td>
@@ -30,23 +40,16 @@ const Client:React.FC<ClientProps> = ({ name, email, phone, status, dateCreated,
             </td>
             <td>
                 <Link to="/edit">
-                    <Button variant="outline-primary">More Info</Button>
+                    <Button 
+                        variant="outline-primary" 
+                        onClick={onClick}
+                    >More Info</Button>
                 </Link>
             </td>
             <td>
-                {dateCreated.getUTCFullYear() +
-                "-" +
-                dateCreated.getMonth() +
-                "-" +
-                dateCreated.getDay()}
+                {dateCreated}
             </td>
             <td className="text-left">{approximateFundingQuote}</td>
-            <td className="text-left">
-                {appsProcessing ? appsProcessing : ""}
-            </td>
-            <td className="text-left">
-                {appsApproved ? appsApproved : ""}
-            </td>
             <td className="text-left">
                 {fundingAmountSoFar ? fundingAmountSoFar : ""}
             </td>

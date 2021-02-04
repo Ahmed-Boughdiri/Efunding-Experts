@@ -38,6 +38,7 @@
 }
 .goback {
     cursor: pointer;
+    transform: translateY(-3px);
 }
 .remove-underline:hover {
     text-decoration: none;

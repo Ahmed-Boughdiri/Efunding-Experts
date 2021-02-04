@@ -1,5 +1,10 @@
 export default function getStatus(status: String) {
   switch (status) {
+    case "quoted now":
+      return {
+        status: "success",
+        message: "Quoting Now"
+      }
     case "waiting":
       return {
         status: "success",

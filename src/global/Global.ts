@@ -6,6 +6,7 @@ import {
   faPencilAlt,
   faPlay,
   IconDefinition,
+  faSchool
 } from "@fortawesome/free-solid-svg-icons";
 
 export interface PathProps {
@@ -119,6 +120,36 @@ export const state: StateProps = {
         },
       ],
     },
+    {
+      name: "Membership",
+      path: [
+        {
+          name: "Home",
+          link: "/dashboard",
+        },
+        {
+          name: "Membership Training",
+          link: "/membership/training",
+        },
+      ],
+    },
+    {
+      name: "Preview",
+      path: [
+        {
+          name: "Home",
+          link: "/dashboard",
+        },
+        {
+          name: "Membership Training",
+          link: "/membership/training",
+        },
+        {
+          name: "Preview Training",
+          link: "/membership/training/preview",
+        },
+      ],
+    },
   ],
   tabs: [
     {
@@ -150,6 +181,12 @@ export const state: StateProps = {
       icon: faPlay,
       placeholder: "Training and Resources",
       link: "/training",
+    },
+    {
+      name: "Membership",
+      icon: faSchool,
+      placeholder: "Membership Training",
+      link: "/membership/training",
     },
     {
       name: "Contracts",

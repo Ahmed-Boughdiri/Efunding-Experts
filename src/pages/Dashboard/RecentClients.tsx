@@ -1,35 +1,50 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Card, Table, Badge } from "react-bootstrap";
-import { recentClients, RecentClients as RC } from "../../global/Dashboard";
 import getQuoteStatus from "../../util/getQuoteStatus";
+import { ClientProps } from "../../@types/others/client";
 
-const RecentClients: React.FC<{}> = () => {
+interface RecentClientsProps {
+  handleRecentClients: () => Promise<void>,
+  recentClients: ClientProps[]
+}
+
+const RecentClients: React.FC<RecentClientsProps> = ({ handleRecentClients, recentClients }) => {
+  useEffect(() =>{
+    handleRecentClients()
+  },[])
   return (
     <Card>
       <Card.Header>
         <h6>RECENT CLIENTS</h6>
       </Card.Header>
       <Card.Body>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recentClients.map((client: RC) => (
-              <tr>
-                <td>{client.name}</td>
-                <td>
-                  <Badge variant={getQuoteStatus(client.status)?.status}>
-                    {getQuoteStatus(client.status)?.message}
-                  </Badge>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+        {
+          !recentClients.length && <h6>There is No Recent Clients Recorded Yet</h6>
+        }
+        {
+          (recentClients.length !== 0) && (
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentClients && recentClients.map(client => (
+                  <tr>
+                    <td>{`${client.FirstName} ${client.LastName}`}</td>
+                    <td>
+                      <Badge variant={getQuoteStatus(client.Status)?.status}>
+                        {getQuoteStatus(client.Status)?.message}
+                      </Badge>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          )
+        }
       </Card.Body>
     </Card>
   );

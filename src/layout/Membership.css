@@ -1,0 +1,45 @@
+
+.membership-training {
+    width: 95%;
+}
+.training-accordion-header {
+    background-color: #3b75cb;
+}
+.training-accordion-header * {
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: 600;
+}
+.training-accordion-header *:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+.training-accordion-link-container {
+    width: 100%;
+    padding: 12px 20px;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.training-accordion-header {
+    color: #007bff !important;
+}
+.training-accordion-toggle:active,
+.training-accordion-toggle:focus {
+    text-decoration: none;
+    outline: none !important;
+}
+.training-accordion-arrow {
+    color: #007bff !important;
+}
+.training-video-link {
+    color: #007bff;
+    cursor: pointer;
+}
+.training-video-link:hover {
+    text-decoration: none;
+}

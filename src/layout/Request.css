@@ -1,0 +1,23 @@
+
+.request {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success-card {
+    max-width: 400px;
+    line-height: 28px;
+}
+.success-button {
+    width: 100%;
+}
+.success-text {
+    max-width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+

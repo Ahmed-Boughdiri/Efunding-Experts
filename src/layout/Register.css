@@ -1,20 +1,24 @@
 
+/*  TODO: Dealing With The Overflow X */
+
 .register {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100vw !important;
+    box-sizing: border-box;
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    flex-direction: column;
+    overflow-x: hidden !important;
+    padding: 3vh 0;
 }
 .register-form {
     background-color: #fff !important;
     border: 1px solid #ddd;
-    width: 80%;
+    width: 80vw;
     max-width: 900px;
     text-align: left;
-    margin-top: 1000px
 }
 .register-title {
     color: #2f4f96 !important;
@@ -33,6 +37,11 @@
     position: relative !important;
     left: 50%;
     transform: translateX(-12%);
+}
+.alert-container {
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
 }
 
 /*  Mobile  */
