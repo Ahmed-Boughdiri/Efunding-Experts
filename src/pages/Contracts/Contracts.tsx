@@ -6,7 +6,12 @@ import "../../layout/Contracts.css";
 import ContractsSection from "./ContractsSection";
 import ApplicationsSection from "./ApplicationsSection";
 import FormsSection from "./FormsSection";
-import { getUserContracts, getContractsAndApplications, getOtherApplications, getOtherForms } from "../../global/GetUserContracts";
+import { 
+  getUserContracts, 
+  getContractsAndApplications, 
+  getOtherApplications, 
+  getOtherForms 
+} from "../../global/GetUserContracts";
 import { getID } from "../../util/ManageID";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";

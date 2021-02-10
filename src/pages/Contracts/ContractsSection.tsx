@@ -32,7 +32,6 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
               <Col md={3}>
                 <Row>
                   <Col md={7} sm={3}>
-                    { /* TODO: Handle The PDF Downloaded Version */ }
                     <a
                       href={"#!"}
                       className="remove-underline"
