@@ -13,6 +13,7 @@ import Loader from "../../components/Loading";
 import Error from "../../components/Error";
 import { RouteComponentProps } from "react-router-dom";
 import { History } from "history";
+import NotesHistory from "../../components/NotesHistory";
 
 const pageInfo = state.pages.find((page) => page.name === "Edit");
 
@@ -72,7 +73,6 @@ const Edit: React.FC<EditProps> = ({
     setLastName(result.LastName);
     setEmail(result.Email as string);
     setPhone(result.Phone && +result.Phone);
-    setNote(result.Note as string)
   }
   useEffect(() =>{
     handleEditData();
@@ -99,6 +99,7 @@ const Edit: React.FC<EditProps> = ({
     }
     setShowLoader(false);
   }
+  const [showNotesHistory, setShowNotesHistroy] = useState(false)
   return (
     <div>
       {
@@ -135,6 +136,7 @@ const Edit: React.FC<EditProps> = ({
                   controllers={controllers} 
                   onClick={handleEditInfo} 
                   editData={editInfoData} 
+                  showNotesHistory={() =>setShowNotesHistroy(true)}
                 />
               </Col>
 
@@ -144,6 +146,12 @@ const Edit: React.FC<EditProps> = ({
             </Row>   
           </>
         )
+      }
+      {
+        showNotesHistory && <NotesHistory 
+                              closeFunc={() =>setShowNotesHistroy(false)} 
+                              notes={editData.Note}
+                            />
       }
     </div>
   );

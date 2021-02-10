@@ -74,7 +74,7 @@ const Quotes:React.FC<any> = ({ storeQuoteID, history, storeEditInfo }) => {
                         <th className="more-info-section">More Info</th>
                         <th className="date-created-section">Date Created</th>
                         <th className="approximate-funding-section">
-                          Approximate Funding Quote
+                          Funding Amount Requested
                         </th>
                         <th>Quote Notes</th>
                       </tr>

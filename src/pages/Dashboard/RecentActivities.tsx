@@ -29,8 +29,8 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({ handleRecentActivit
                 <Row>
                   <Col sm={8}>
                     <h6 className="text-primary">{`${recent.FirstName} ${recent.LastName}`}</h6>
-                    <h6 className="text-dark">Note From Pocessor</h6>
-                    <h6 className="text-muted">{recent.Notes}</h6>
+                    <h6 className="text-dark">Note From {(recent?.Notes[recent?.Notes?.length - 1].sender === "admin") ? "Admin" : "You"}</h6>
+                    <h6 className="text-muted">{(recent?.Notes?.length) ? recent?.Notes[recent?.Notes?.length - 1].contentValue : ""}</h6>
                   </Col>
                   <Col sm={4}>
                     <h6 className="text-muted text-right">

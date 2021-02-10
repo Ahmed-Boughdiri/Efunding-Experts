@@ -19,14 +19,16 @@ interface EditInfoProps {
     updateCreditReport: (e:React.ChangeEvent<HTMLInputElement>) => void
   },
   onClick: () => Promise<void>,
-  editData: any
+  editData: any,
+  showNotesHistory: () => void
 }
 
 const EditInfo: React.FC<EditInfoProps> = ({ 
   actions, 
   controllers, 
   onClick, 
-  editData 
+  editData,
+  showNotesHistory
 }) => {
   return (
     <Card>
@@ -120,6 +122,13 @@ const EditInfo: React.FC<EditInfoProps> = ({
           onClick={onClick}
         >
           SAVE
+        </Button>
+        <Button
+          variant="success"
+          className="float-right mr-2"
+          onClick={showNotesHistory}
+        >
+          See Notes History
         </Button>
       </Card.Footer>
     </Card>

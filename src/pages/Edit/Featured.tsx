@@ -9,7 +9,7 @@ const Featured: React.FC<{ editData:any }> = ({ editData }) => {
         <Form>
           <Form.Group as={Row} controlId="formPlaintextEmail">
             <Form.Label column sm="7">
-              <h6>Approx Quote Amount</h6>
+              <h6>Funding Amount Requested</h6>
             </Form.Label>
             <Col sm="5">
               <fieldset disabled>

@@ -51,13 +51,13 @@ const Client:React.FC<ClientProps> = ({
             </td>
             <td className="text-left">{approximateFundingQuote}</td>
             <td className="text-left">
-                {fundingAmountSoFar ? fundingAmountSoFar : ""}
+                {fundingAmountSoFar ? fundingAmountSoFar + "$" : ""}
             </td>
             <td className="text-left">
-                {totalCommision ? totalCommision : ""}
+                {totalCommision ? totalCommision + "$" : ""}
             </td>
             <td className="text-left">
-                {commisionCollected ? commisionCollected : ""}
+                {commisionCollected ? commisionCollected + "$" : ""}
             </td>
         </tr>
     )

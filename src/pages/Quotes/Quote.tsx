@@ -2,6 +2,7 @@ import React,{ useState, useEffect } from "react";
 import { Badge, Button } from "react-bootstrap";
 import getStatus from "../../util/getQuoteStatus";
 import { connect } from "react-redux";
+import { NotesProps } from "../../@types/data/data";
 
 interface QuoteProps {
     firstName: String,
@@ -10,7 +11,7 @@ interface QuoteProps {
     email: String,
     status: String,
     dateCreated: Date,
-    quoteNotes: String,
+    quoteNotes: NotesProps[],
     approximateFundingQuote: Number,
     handleMoreInfo: any,
     id:String,
@@ -34,7 +35,7 @@ const Quote:React.FC<QuoteProps> = ({
 }) =>{
     const [statusMessage, setSatatusMessage] = useState("");
     const handleStatusMessage = () =>{
-        if(getStatus(status)?.message === "Quoted Now") setSatatusMessage("Quoted Now")
+        if(getStatus(status)?.message.toUpperCase() === "QUOTING NOW") setSatatusMessage("Quoting Now")
         else if(getStatus(status)?.message === "Quoted Waiting on Contact") setSatatusMessage("Quoted Waiting on Contact")
     }
     useEffect(() =>{
@@ -54,7 +55,8 @@ const Quote:React.FC<QuoteProps> = ({
                 <Button variant="outline-primary" onClick={() =>{
                     let infoType = ""
                     if(statusMessage.toUpperCase() === "QUOTED WAITING ON CONTACT") infoType = "approved-quote"
-                    else if(statusMessage.toUpperCase() === "Quoted Now".toUpperCase()) infoType = "refferal"
+                    else if(statusMessage.toUpperCase() === "QUOTING NOW".toUpperCase()) infoType = "refferal"
+                    else if(statusMessage.toUpperCase() === "DOESN'T QUALIFY") infoType = "denied-refferal"
                     handleMoreInfo(id, QuoteID, infoType)
                     const data = {
                         FirstName: firstName,
@@ -64,7 +66,7 @@ const Quote:React.FC<QuoteProps> = ({
                         CommissionsCollected: "",
                         Email: email,
                         Phone: phone,
-                        Note: quoteNotes
+                        Note: [ ...quoteNotes ] || []
                     }
                     storeEditData(data)
                 }}>More Info</Button>
@@ -75,7 +77,7 @@ const Quote:React.FC<QuoteProps> = ({
                 }
             </td>
             <td>{approximateFundingQuote}</td>
-            <td className="text-left">{quoteNotes}</td>
+            <td className="text-left">{(quoteNotes?.length) ? quoteNotes[quoteNotes?.length - 1]?.contentValue : ""}</td>
         </tr>
     )
 }
