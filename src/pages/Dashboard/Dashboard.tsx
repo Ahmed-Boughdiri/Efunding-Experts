@@ -90,7 +90,10 @@ const Dashboard:React.FC = () => {
             <h3 className="pt-4 text-left pl-3">Dashboard</h3>
             <Row>
               <Col md={6}>
-                <RecentActivities handleRecentActivities={handleRecentActivities} recentActivities={recentActivities} />
+                <RecentActivities 
+                  handleRecentActivities={handleRecentActivities} 
+                  recentActivities={recentActivities} 
+                />
               </Col>
               <Col md={6}>
                 <Card className="mt-4 mb-3">
@@ -98,17 +101,25 @@ const Dashboard:React.FC = () => {
                     <h6>COMMISION WE OWE YOU</h6>
                   </Card.Header>
                   <Card.Body>
-                    <h2 className="text-right">${(commision === 0) ? "000.00" : commision + ""}</h2>
+                    <h2 className="text-right">
+                      ${(commision === 0) ? "000.00" : commision + ""}
+                    </h2>
                   </Card.Body>
                 </Card>
               </Col>
             </Row>
             <Row>
               <Col md={6} className="mt-3 recent-clients">
-                <RecentClients handleRecentClients={handleRecentClients} recentClients={recentClients} />
+                <RecentClients 
+                  handleRecentClients={handleRecentClients} 
+                  recentClients={recentClients} 
+                />
               </Col>
               <Col md={6} className="commision-container">
-                <Refferals handleRecentRefferals={handleRecentRefferals} recentRefferals={recentRefferals} />
+                <Refferals 
+                  handleRecentRefferals={handleRecentRefferals} 
+                  recentRefferals={recentRefferals} 
+                />
               </Col>
             </Row>      
           </>
