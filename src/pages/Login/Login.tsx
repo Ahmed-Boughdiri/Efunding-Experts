@@ -33,13 +33,25 @@ const Login:React.FC<LoginProps> = ({ history, id }) =>{
             <div>
                 {
                     showError && (
-                        <Alert variant={(error === "Your Account Still Didn't Approved Yet") ? "success" : "danger"} style={{width: 350, textAlign: "center"}}>
+                        <Alert 
+                            variant={
+                                (error === "Your Account Still Didn't Approved Yet") ? 
+                                "success" : "danger"
+                            } 
+                            style={{
+                                width: 350, 
+                                textAlign: "center"
+                            }}
+                        >
                             {error}
                         </Alert>
                     )
                 }
                 <Toast className="toaster-container">
-                    <Toast.Header className="toaster-header" closeButton={false}>
+                    <Toast.Header 
+                        className="toaster-header" 
+                        closeButton={false}
+                    >
                         <h4 className="mr-auto mx-2">Login</h4>
                     </Toast.Header>
                     <Toast.Body>
