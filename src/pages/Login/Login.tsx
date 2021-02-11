@@ -57,44 +57,88 @@ const Login:React.FC<LoginProps> = ({ history, id }) =>{
                     <Toast.Body>
                         <Container>
                             <Form.Group className="mt-2">
-                                <Form.Label htmlFor="inlineFormInputGroup" srOnly>
+                                <Form.Label 
+                                    htmlFor="inlineFormInputGroup" 
+                                    srOnly
+                                >
                                     Email
                                 </Form.Label>
                                 <InputGroup className="mb-2">
                                     <InputGroup.Prepend>
-                                    <InputGroup.Text><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
+                                        <InputGroup.Text>
+                                            <FontAwesomeIcon icon={faUser} />
+                                        </InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <FormControl id="inlineFormInputGroup" placeholder="Email" value={email} onChange={(e) =>setEmail(e.target.value)} />
+                                    <FormControl 
+                                        id="inlineFormInputGroup" 
+                                        placeholder="Email" 
+                                        value={email} 
+                                        onChange={(e) =>setEmail(e.target.value)} 
+                                    />
                                 </InputGroup>
-                                <Form.Label htmlFor="inlineFormInputGroup" srOnly>
+                                <Form.Label 
+                                    htmlFor="inlineFormInputGroup" 
+                                    srOnly
+                                >
                                     Password
                                 </Form.Label>
                                 <InputGroup className="mb-2">
                                     <InputGroup.Prepend>
-                                    <InputGroup.Text><FontAwesomeIcon icon={faKey} /></InputGroup.Text>
+                                        <InputGroup.Text>
+                                            <FontAwesomeIcon icon={faKey} />
+                                        </InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <FormControl id="inlineFormInputGroup" type="password" placeholder="Password" value={password} onChange={(e) =>setPassword(e.target.value)} />
+                                    <FormControl 
+                                        id="inlineFormInputGroup" 
+                                        type="password" 
+                                        placeholder="Password" 
+                                        value={password} 
+                                        onChange={(e) =>setPassword(e.target.value)} 
+                                    />
                                 </InputGroup>
                                 <Row>
                                     <Col sm={12} md={6}>
-                                        <p className="text-md-left text-sm-center font-weight-bold text-primary mt-3">Forget Password ?</p>
+                                        <p 
+                                            className="text-md-left text-sm-center font-weight-bold text-primary mt-3"
+                                        >
+                                            Forget Password ?
+                                        </p>
                                     </Col>
                                     <Col sm={12} md={6}>
-                                        <p className="text-md-right text-sm-center font-weight-bold mt-3">Remember Me</p>
+                                        <p 
+                                            className="text-md-right text-sm-center font-weight-bold mt-3"
+                                        >
+                                            Remember Me
+                                        </p>
                                     </Col>
                                 </Row>
                             </Form.Group>
                         </Container>
                     </Toast.Body>
-                    <Toast.Header className="toaster-tail py-2" closeButton={false}>
+                    <Toast.Header 
+                        className="toaster-tail py-2" 
+                        closeButton={false}
+                    >
                         <Container>
                             <Row>
                                 <Col sm={12} md={6}>
-
-                                    <Link to="/register"><Button variant="light" className="register-btn px-4">Register</Button></Link>
+                                    <Link to="/register">
+                                        <Button 
+                                            variant="light" 
+                                            className="register-btn px-4"
+                                        >
+                                            Register
+                                        </Button>
+                                    </Link>
                                 </Col>
                                 <Col sm={12} md={6}>
-                                    <Button variant="primary" className="px-4 login-btn" onClick={async() =>await handleLogin(email,password)}>Log in</Button>
+                                    <Button 
+                                        variant="primary" 
+                                        className="px-4 login-btn" 
+                                        onClick={async() =>await handleLogin(email,password)}
+                                    >
+                                        Log in
+                                    </Button>
                                 </Col>
                             </Row>
                         </Container>
