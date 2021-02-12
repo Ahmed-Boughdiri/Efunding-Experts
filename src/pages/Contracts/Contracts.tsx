@@ -67,19 +67,29 @@ const Contracts = () => {
                   !contractsData.length && <h6>There is No Contract Send To You Yet</h6>
                 }
                 {
-                  (contractsData.length !== 0) && <ContractsSection contracts={contractsData} />
+                  (contractsData.length !== 0) && <ContractsSection 
+                                                    contracts={contractsData} 
+                                                  />
                 }
               </Card.Body>
             </Card>
 
-            <Card className="mt-5 card" style={{ width: "98%" }}>
+            <Card 
+              className="mt-5 card" 
+              style={{ 
+                width: "98%" 
+              }}
+            >
               <Card.Header as="h5">Other Applications</Card.Header>
               <Card.Body>
                 {
-                  !applicationsData.length && <h6>There is No Application Contract Send To You Yet</h6>
+                  !applicationsData.length && 
+                      <h6>There is No Application Contract Send To You Yet</h6>
                 }
                 {
-                  (applicationsData.length !== 0) && <ApplicationsSection applications={applicationsData} />
+                  (applicationsData.length !== 0) && <ApplicationsSection 
+                                                        applications={applicationsData} 
+                                                      />
                 }
               </Card.Body>
             </Card>
@@ -88,7 +98,8 @@ const Contracts = () => {
               <Card.Header as="h5">Other Forms</Card.Header>
               <Card.Body>
                 {
-                  !formsData.length && <h6>There is No Form Contract Send To You Yet</h6>
+                  !formsData.length && 
+                    <h6>There is No Form Contract Send To You Yet</h6>
                 }
                 {
                   (formsData.length !== 0) && <FormsSection forms={formsData} />
