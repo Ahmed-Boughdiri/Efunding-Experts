@@ -84,17 +84,26 @@ const Edit: React.FC<EditProps> = ({
   const handleEditInfo = async() =>{
     setShowLoader(true)
     let identifier = "";
-    if(editInfoData.infoType === "refferal") identifier = (editInfoData.quoteID as string)
-    else if(editInfoData.infoType === "client") identifier = (editInfoData.clientEmail as string)
-    else if(editInfoData.infoType === "approved-quote") identifier = (editInfoData.quoteID as string)
-    const res = await editInfo(controllers, editInfoData.infoType, identifier,  editInfoData.ownerID, file);
+    if(editInfoData.infoType === "refferal") 
+      identifier = (editInfoData.quoteID as string)
+    else if(editInfoData.infoType === "client") 
+      identifier = (editInfoData.clientEmail as string)
+    else if(editInfoData.infoType === "approved-quote") 
+      identifier = (editInfoData.quoteID as string)
+    const res = await editInfo(
+      controllers, 
+      editInfoData.infoType, 
+      identifier,  
+      editInfoData.ownerID, 
+      file
+    );
     if(!res.success) {
       setError(res.error as string)
       setShowError(true)
       setShowLoader(false)
     } else {
       setShowLoader(false)
-      history.push("/clients")
+        history.push(`${(editInfoData.infoType === "client") ? "/clients" : "/quotes"}`)
       setShowError(false)
     }
     setShowLoader(false);
