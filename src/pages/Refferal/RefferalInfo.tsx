@@ -1,8 +1,17 @@
 import React from "react";
 import { Card, Row, Col, Form, Container } from "react-bootstrap";
 import "../../layout/Refferal.css";
+import { ControllersProps, ActionsProps } from "./types";
 
-const RefferalInfo:React.FC<any> = ({ controllers, actions }) => {
+interface RefferalInfoProps {
+  controllers: ControllersProps;
+  actions: ActionsProps
+}
+
+const RefferalInfo:React.FC<RefferalInfoProps> = ({ 
+  controllers, 
+  actions 
+}) => {
   return (
     <div>
       <Card.Header>
@@ -91,21 +100,42 @@ const RefferalInfo:React.FC<any> = ({ controllers, actions }) => {
                 >
                   <option value={undefined}>Please select an option</option>
                   <option value="No">No</option>
-                  <option value="Yes - it's 0-6 months old">Yes - it's 0-6 months old</option>
-                  <option value="Yes - it's 12-24 month old">Yes - it's 12-24 month old</option>
-                  <option value="Yes - it's 2-4 years old">Yes - it's 2-4 years old</option>
-                  <option value="Yes - it's 4-10 years old">Yes - it's 4-10 years old</option>
-                  <option value="Yes - it's 10+ years old">Yes - it's 10+ years old</option>
+                  <option value="Yes - it's 0-6 months old">
+                    Yes - it's 0-6 months old
+                  </option>
+                  <option value="Yes - it's 12-24 month old">
+                    Yes - it's 12-24 month old
+                  </option>
+                  <option value="Yes - it's 2-4 years old">
+                    Yes - it's 2-4 years old
+                  </option>
+                  <option value="Yes - it's 4-10 years old">
+                    Yes - it's 4-10 years old
+                  </option>
+                  <option value="Yes - it's 10+ years old">
+                    Yes - it's 10+ years old
+                  </option>
                 </Form.Control>
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formHorizontalEmail">
-              <Form.Label column sm={4}>
+            <Form.Group 
+              as={Row} 
+              controlId="formHorizontalEmail"
+            >
+              <Form.Label 
+                column 
+                sm={4}
+              >
                 <h6 className="text-left">If so, name of the business?</h6>
               </Form.Label>
               <Col sm={8}>
-                <Form.Control type="text" placeholder="" value={controllers.nameOfTheBusiness} onChange={actions.setNameOfTheBusiness} />
+                <Form.Control 
+                  type="text" 
+                  placeholder="" 
+                  value={controllers.nameOfTheBusiness as string} 
+                  onChange={actions.setNameOfTheBusiness} 
+                />
               </Col>
             </Form.Group>
           </div>

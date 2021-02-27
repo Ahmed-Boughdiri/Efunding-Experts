@@ -1,5 +1,7 @@
 import Axios from "./Axios";
 import { getToken } from "../util/other/Token";
+import { isArray } from "util";
+import JSZip, { file } from "jszip";
 
 interface ReturnProps {
     success: Boolean,
@@ -8,7 +10,7 @@ interface ReturnProps {
 }
 
 interface RefferalProps {
-    creditReport: Blob,
+    creditReport: File|File[]|null,
     DesiredAmountOfFunding: String,
     WhatsMainPurposeOfFund: String,
     DoTheyAlreadyHaveABusiness: String,
@@ -24,19 +26,40 @@ interface RefferalProps {
     Phone: Number,
     Email: String,
     Income: Number,
-    Notes: String
+    Notes: String,
+    uploadedFilesPath: String[]
 }
+
+async function handleZip(
+    files:FileProps, 
+    uploadedFilesPath: String[]
+):Promise<Blob|null> {
+    if(!files) return null;
+    if(!isArray(files)) return null;
+    const zip = new JSZip();
+    for(let i=0; i<uploadedFilesPath.length; i++) {
+        zip.file(uploadedFilesPath[i] as string, files[i], { base64: true })
+    }
+    const result = await zip.generateAsync({ type: "blob" });
+    return result;
+}
+
+type FileProps = File[] | File | Blob | null;
 
 export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProps> {
     const fd = new FormData();
-    if(refferal.creditReport) fd.append("file", refferal.creditReport);
+    let file:FileProps = refferal.creditReport;
+    if(isArray(refferal.creditReport))
+        file = await handleZip(file, refferal.uploadedFilesPath)
+    if(refferal.creditReport) fd.append("file", file as Blob);
     fd.append("DesiredAmountOfFunding", refferal.DesiredAmountOfFunding as string);
     fd.append("WhatsMainPurposeOfFund", refferal.WhatsMainPurposeOfFund as string);
     fd.append("DoTheyAlreadyHaveABusiness", refferal.DoTheyAlreadyHaveABusiness as string);
     fd.append("FirstName", refferal.FirstName as string);
     fd.append("LastName", refferal.LastName as string);
     fd.append("ownerID", refferal.ownerID as string);
-    if(refferal.nameOfTheBusiness) fd.append("nameOfTheBusiness", refferal.nameOfTheBusiness as string);
+    if(refferal.nameOfTheBusiness) 
+        fd.append("nameOfTheBusiness", refferal.nameOfTheBusiness as string);
     if(refferal.Adress) fd.append("Adress", refferal.Adress as string);
     if(refferal.City) fd.append("City", refferal.City as string);
     if(refferal.State) fd.append("State", refferal.State as string);
