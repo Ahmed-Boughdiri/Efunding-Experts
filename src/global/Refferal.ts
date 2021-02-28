@@ -1,7 +1,7 @@
 import Axios from "./Axios";
 import { getToken } from "../util/other/Token";
 import { isArray } from "util";
-import JSZip, { file } from "jszip";
+import JSZip from "jszip";
 
 interface ReturnProps {
     success: Boolean,
@@ -40,7 +40,7 @@ async function handleZip(
     for(let i=0; i<uploadedFilesPath.length; i++) {
         zip.file(uploadedFilesPath[i] as string, files[i], { base64: true })
     }
-    const result = await zip.generateAsync({ type: "blob" });
+    const result = await zip.generateAsync({ type: "blob", comment: "DEFLATE" });
     return result;
 }
 

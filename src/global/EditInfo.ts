@@ -10,7 +10,11 @@ interface ArgsProps {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default async function(data:ArgsProps, infoType: ("refferal" | "approved-quote" | "client"), identifier:String, ownerID: String, file:any):Promise<ReturnProps> {
+export default async function(
+    data:ArgsProps, 
+    infoType: ("refferal" | "approved-quote" | "client"), 
+    identifier:String, ownerID: String, file:any
+):Promise<ReturnProps> {
     const requestData = new FormData();
     requestData.append("infoType", infoType)
     requestData.append("ownerID", ownerID as string)
