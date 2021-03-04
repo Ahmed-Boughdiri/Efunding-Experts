@@ -11,6 +11,7 @@ import Loading from "../../components/Loading";
 import { ControllersProps, ActionsProps } from "./types";
 import { RouteComponentProps } from "react-router-dom";
 import { History } from "history";
+import { FileProps } from "../../@types/others/file";
 
 const pageInfo = state.pages.find((page) => page.name === "Refferal");
 
@@ -33,7 +34,7 @@ const Refferal:React.FC<{history: History}> = ({ history }) => {
   const [Email, setEmail] = useState("");
   const [Income, setIncome] = useState("");
   const [Notes, setNotes] = useState("");
-  const [creditFile, setCreditFile] = useState<File|File[]|null>(null);
+  const [creditFile, setCreditFile] = useState<any>(null);
   const [uploadedFilesPath, setUploadedFilesPath] = useState<String[]>([])
 
   const [showLoader, setShowLoader] = useState(false);
@@ -93,7 +94,8 @@ const Refferal:React.FC<{history: History}> = ({ history }) => {
         setZip(+e.target.value)
       }
     },
-    setDOB: (e:React.ChangeEvent<HTMLInputElement>) =>setDOB(e.target.value),
+    setDOB: (e:React.ChangeEvent<HTMLInputElement>) =>
+                    setDOB(e.target.value),
     setPhone: (e:React.ChangeEvent<HTMLInputElement>) =>{
       const re = /^[0-9]+$/;
       if(
@@ -118,17 +120,24 @@ const Refferal:React.FC<{history: History}> = ({ history }) => {
     setFile: 
       (e:React.ChangeEvent<HTMLInputElement>) =>{
         if(e.target.files) {
-          if(e.target.files?.length > 1) {
-            const uploadedFiles = [ ...e.target.files ];
-            setCreditFile(uploadedFiles)
-            const uploadedFilesData = []
-            for(let i=0; i<uploadedFiles.length; i++) {
-              uploadedFilesData.push(uploadedFiles[i].name);
-            }
-            setUploadedFilesPath(uploadedFilesData);
-          } else {
-            setCreditFile(e.target.files[0])
+          // if(e.target.files?.length > 1) {
+          //   const uploadedFiles = [ ...e.target.files ];
+          //   setCreditFile(uploadedFiles)
+          //   const uploadedFilesData = []
+          //   for(let i=0; i<uploadedFiles.length; i++) {
+          //     uploadedFilesData.push(uploadedFiles[i].name);
+          //   }
+          //   setUploadedFilesPath(uploadedFilesData);
+          // } else {
+          //   setCreditFile(e.target.files[0])
+          // }
+          console.log("Files", e.target.files)
+          const fileUploadedList = [];
+          for(let i=0; i<e.target.files.length; i++) {
+            fileUploadedList.push(e.target.files[i])
           }
+          console.log("File Uploaded List: ", fileUploadedList)
+          setCreditFile(e.target.files)
         }
       }
   }
@@ -145,6 +154,7 @@ const Refferal:React.FC<{history: History}> = ({ history }) => {
       ownerID: getID(),
       creditReport: creditFile
     }
+    console.log("Refferal Data Credit Report: ", refferalData.creditReport)
     if (nameOfTheBusiness) 
       refferalData.nameOfTheBusiness = nameOfTheBusiness;
     if (Adress) refferalData.Adress = Adress;

@@ -2,6 +2,7 @@ import Axios from "./Axios";
 import { getToken } from "../util/other/Token";
 import { isArray } from "util";
 import JSZip from "jszip";
+import { FileProps } from "../@types/others/file";
 
 interface ReturnProps {
     success: Boolean,
@@ -10,7 +11,7 @@ interface ReturnProps {
 }
 
 interface RefferalProps {
-    creditReport: File|File[]|null,
+    creditReport: any,
     DesiredAmountOfFunding: String,
     WhatsMainPurposeOfFund: String,
     DoTheyAlreadyHaveABusiness: String,
@@ -44,14 +45,13 @@ async function handleZip(
     return result;
 }
 
-type FileProps = File[] | File | Blob | null;
 
 export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProps> {
     const fd = new FormData();
-    let file:FileProps = refferal.creditReport;
-    if(isArray(refferal.creditReport))
-        file = await handleZip(file, refferal.uploadedFilesPath)
-    if(refferal.creditReport) fd.append("file", file as Blob);
+    // let file:FileProps = refferal.creditReport;
+    // if(isArray(refferal.creditReport))
+    //     file = await handleZip(file, refferal.uploadedFilesPath)
+    fd.append("reports", refferal.creditReport as Blob);
     fd.append("DesiredAmountOfFunding", refferal.DesiredAmountOfFunding as string);
     fd.append("WhatsMainPurposeOfFund", refferal.WhatsMainPurposeOfFund as string);
     fd.append("DoTheyAlreadyHaveABusiness", refferal.DoTheyAlreadyHaveABusiness as string);
@@ -79,10 +79,6 @@ export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProp
     try {
 
         const req = await Axios.post("/quotes/add", fd, config)
-        if(req.status === 400) return {
-            success: false,
-            error: req.data.error
-        }
         const res = await req.data;
         return {
             success: true,
@@ -93,7 +89,8 @@ export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProp
     } catch(err) {
         return {
             success: false,
-            error: err.response?.data.error || "An Error Has Occured Please Check Your Internet Connection And Try Again"
+            error: err.response?.data.error || 
+                "An Error Has Occured Please Check Your Internet Connection And Try Again"
         }
     }
 }
