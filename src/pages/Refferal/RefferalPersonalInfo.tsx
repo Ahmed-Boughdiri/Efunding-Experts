@@ -231,7 +231,7 @@ const RefferalPersonalInfo:React.FC<RefferalPersonalInfoProps> = ({
                     id="validationFormik107"
                     onChange={actions.setFile}
                     feedbackTooltip
-                    
+                    multiple
                   />
                 </Form.Group>
               </Col>

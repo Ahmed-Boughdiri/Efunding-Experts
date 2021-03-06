@@ -11,7 +11,7 @@ interface ReturnProps {
 }
 
 interface RefferalProps {
-    creditReport: any,
+    creditReport: FileList,
     DesiredAmountOfFunding: String,
     WhatsMainPurposeOfFund: String,
     DoTheyAlreadyHaveABusiness: String,
@@ -51,7 +51,11 @@ export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProp
     // let file:FileProps = refferal.creditReport;
     // if(isArray(refferal.creditReport))
     //     file = await handleZip(file, refferal.uploadedFilesPath)
-    fd.append("reports", refferal.creditReport as Blob);
+    if(refferal.creditReport) {
+        for(let i=0;i<refferal.creditReport.length;i++) {
+            fd.append("file", refferal.creditReport[i] as Blob);
+        }
+    }
     fd.append("DesiredAmountOfFunding", refferal.DesiredAmountOfFunding as string);
     fd.append("WhatsMainPurposeOfFund", refferal.WhatsMainPurposeOfFund as string);
     fd.append("DoTheyAlreadyHaveABusiness", refferal.DoTheyAlreadyHaveABusiness as string);

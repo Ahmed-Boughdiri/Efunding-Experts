@@ -131,12 +131,12 @@ const Refferal:React.FC<{history: History}> = ({ history }) => {
           // } else {
           //   setCreditFile(e.target.files[0])
           // }
-          console.log("Files", e.target.files)
-          const fileUploadedList = [];
-          for(let i=0; i<e.target.files.length; i++) {
-            fileUploadedList.push(e.target.files[i])
-          }
-          console.log("File Uploaded List: ", fileUploadedList)
+          // console.log("Files", e.target.files)
+          // const fileUploadedList = [];
+          // for(let i=0; i<e.target.files.length; i++) {
+          //   fileUploadedList.push(e.target.files[i])
+          // }
+          // console.log("File Uploaded List: ", fileUploadedList)
           setCreditFile(e.target.files)
         }
       }
