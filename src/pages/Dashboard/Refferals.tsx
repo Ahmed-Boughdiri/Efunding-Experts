@@ -8,7 +8,10 @@ interface RefferalsProps {
     recentRefferals: RefferalProps[]
 }
 
-const Refferals:React.FC<RefferalsProps> = ({ handleRecentRefferals, recentRefferals }) =>{
+const Refferals:React.FC<RefferalsProps> = ({ 
+    handleRecentRefferals, 
+    recentRefferals 
+}) =>{
     useEffect(() =>{
         handleRecentRefferals()
     },[])
@@ -19,10 +22,12 @@ const Refferals:React.FC<RefferalsProps> = ({ handleRecentRefferals, recentReffe
             </Card.Header>
             <Card.Body>
                 {
-                    !recentRefferals.length && <h6>There is No Refferals Recorded Yet</h6>
+                    !recentRefferals?.length && (
+                        <h6>There is No Refferals Recorded Yet</h6>
+                    )
                 }
                 {
-                    (recentRefferals.length !== 0) && (
+                    (recentRefferals?.length) && (
                         <Table striped bordered hover>
                             <thead>
                                 <th>Name</th>
@@ -30,14 +35,23 @@ const Refferals:React.FC<RefferalsProps> = ({ handleRecentRefferals, recentReffe
                             </thead>
                             <tbody>
                                 {
+                                    (recentRefferals?.length) && 
                                     recentRefferals.map(rf =>(
                                         <tr>
-                                            <td>{`${rf.FirstName} ${rf.LastName}`}</td>
-                                            <td>
-                                                <Badge variant={getStatus(rf.Status)?.status}>
-                                                    {getStatus(rf.Status)?.message}
-                                                </Badge>
-                                            </td>
+                                            {
+                                                (rf?.FirstName && rf?.LastName) && (
+                                                    <td>{`${rf.FirstName} ${rf.LastName}`}</td>
+                                                )
+                                            }
+                                            {
+                                                (rf?.Status) && (
+                                                    <td>
+                                                        <Badge variant={getStatus(rf.Status)?.status}>
+                                                            {getStatus(rf.Status)?.message}
+                                                        </Badge>
+                                                    </td>
+                                                )
+                                            }
                                         </tr>
                                     ))
                                 }

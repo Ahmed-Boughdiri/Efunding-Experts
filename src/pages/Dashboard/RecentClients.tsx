@@ -8,7 +8,10 @@ interface RecentClientsProps {
   recentClients: ClientProps[]
 }
 
-const RecentClients: React.FC<RecentClientsProps> = ({ handleRecentClients, recentClients }) => {
+const RecentClients: React.FC<RecentClientsProps> = ({ 
+  handleRecentClients, 
+  recentClients 
+}) => {
   useEffect(() =>{
     handleRecentClients()
   },[])
@@ -19,10 +22,9 @@ const RecentClients: React.FC<RecentClientsProps> = ({ handleRecentClients, rece
       </Card.Header>
       <Card.Body>
         {
-          !recentClients.length && <h6>There is No Recent Clients Recorded Yet</h6>
-        }
-        {
-          (recentClients.length !== 0) && (
+          !recentClients?.length ? (
+            <h6>There is No Recent Clients Recorded Yet</h6>
+          ) : (
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -31,16 +33,24 @@ const RecentClients: React.FC<RecentClientsProps> = ({ handleRecentClients, rece
                 </tr>
               </thead>
               <tbody>
-                {recentClients && recentClients.map(client => (
+                {(recentClients?.length) ? recentClients.map(client => (
                   <tr>
-                    <td>{`${client.FirstName} ${client.LastName}`}</td>
-                    <td>
-                      <Badge variant={getQuoteStatus(client.Status)?.status}>
-                        {getQuoteStatus(client.Status)?.message}
-                      </Badge>
-                    </td>
+                    {
+                      (client?.FirstName && client?.LastName) && (
+                        <td>{`${client.FirstName} ${client.LastName}`}</td>
+                      )
+                    }
+                    {
+                      (client?.Status) && (
+                        <td>
+                          <Badge variant={getQuoteStatus(client.Status)?.status}>
+                            {getQuoteStatus(client.Status)?.message}
+                          </Badge>
+                        </td>
+                      )
+                    }
                   </tr>
-                ))}
+                )) : (<div></div>)}
               </tbody>
             </Table>
           )
