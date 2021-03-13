@@ -110,6 +110,7 @@ const EditInfo: React.FC<EditInfoProps> = ({
             </Form.File.Label>
             <Form.File.Input 
               onChange={actions.updateCreditReport} 
+              multiple
             />
           </Form.File>
           

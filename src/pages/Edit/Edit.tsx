@@ -37,7 +37,7 @@ const Edit: React.FC<EditProps> = ({
   const [phone, setPhone] = useState<Number|null>(null)
   const [email, setEmail] = useState("")
   const [note, setNote] = useState("")
-  const [file, setFile] = useState<Blob | null>(null);
+  const [file, setFile] = useState<FileList|null>(null);
   const controllers = {
     firstName,
     lastName,
@@ -57,7 +57,7 @@ const Edit: React.FC<EditProps> = ({
     updateNote: (e:React.ChangeEvent<HTMLInputElement>) => 
                           setNote(e.target.value),
     updateCreditReport: (e:React.ChangeEvent<HTMLInputElement>) => 
-                          setFile(e.target.files && e.target.files[0])
+                          setFile(e.target.files && e.target.files)
   }
   const handleEditData = () =>{
     if(Object.keys(editData).length === 0) {

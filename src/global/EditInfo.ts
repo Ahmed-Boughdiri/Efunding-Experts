@@ -24,8 +24,10 @@ export default async function(
     requestData.append("email", data.email as string)
     requestData.append("note", data.note as string)
     requestData.append("file", file)
-    if(infoType === "refferal" || infoType === "approved-quote") requestData.append("id", identifier as string)
-    else if(infoType === "client") requestData.append("clientEmail", identifier as string)
+    if(infoType === "refferal" || infoType === "approved-quote") 
+        requestData.append("id", identifier as string)
+    else if(infoType === "client") 
+        requestData.append("clientEmail", identifier as string)
     try {
         const req = await Axios.post("/info/edit", requestData);
         const res = await req.data;
