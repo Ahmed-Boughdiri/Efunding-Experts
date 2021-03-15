@@ -28,29 +28,10 @@ interface RefferalProps {
     Email: String,
     Income: Number,
     Notes: String,
-    uploadedFilesPath: String[]
 }
-
-async function handleZip(
-    files:FileProps, 
-    uploadedFilesPath: String[]
-):Promise<Blob|null> {
-    if(!files) return null;
-    if(!isArray(files)) return null;
-    const zip = new JSZip();
-    for(let i=0; i<uploadedFilesPath.length; i++) {
-        zip.file(uploadedFilesPath[i] as string, files[i], { base64: true })
-    }
-    const result = await zip.generateAsync({ type: "blob", comment: "DEFLATE" });
-    return result;
-}
-
 
 export async function submitRefferal(refferal: RefferalProps):Promise<ReturnProps> {
     const fd = new FormData();
-    // let file:FileProps = refferal.creditReport;
-    // if(isArray(refferal.creditReport))
-    //     file = await handleZip(file, refferal.uploadedFilesPath)
     if(refferal.creditReport) {
         for(let i=0;i<refferal.creditReport.length;i++) {
             fd.append("file", refferal.creditReport[i] as Blob);

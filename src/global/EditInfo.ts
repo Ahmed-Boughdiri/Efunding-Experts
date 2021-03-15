@@ -13,7 +13,9 @@ interface ArgsProps {
 export default async function(
     data:ArgsProps, 
     infoType: ("refferal" | "approved-quote" | "client"), 
-    identifier:String, ownerID: String, file:any
+    identifier:String, 
+    ownerID: String, 
+    file:FileList | null
 ):Promise<ReturnProps> {
     const requestData = new FormData();
     requestData.append("infoType", infoType)
@@ -23,7 +25,11 @@ export default async function(
     requestData.append("phone", data.phone + "")
     requestData.append("email", data.email as string)
     requestData.append("note", data.note as string)
-    requestData.append("file", file)
+    if(file) {
+        for(let i=0;i<file.length;i++) {
+            requestData.append("file", file[i] as Blob);
+        }
+    }
     if(infoType === "refferal" || infoType === "approved-quote") 
         requestData.append("id", identifier as string)
     else if(infoType === "client") 
