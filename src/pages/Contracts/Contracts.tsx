@@ -16,12 +16,17 @@ import { getID } from "../../util/ManageID";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import { RouteComponentProps } from "react-router-dom";
+import { History } from "history";
 
 const pageInfo = state.pages.find((page) => page.name === "Contracts");
 
 const id = getID();
 
-const Contracts = () => {
+interface ContractsProps {
+  history: History
+}
+
+const Contracts:React.FC<ContractsProps> = ({ history }) => {
   const [contractsData, setContrcatsData] = useState<any[]>([]);
   const [applicationsData, setApplicationsData] = useState<any[]>([]);
   const [formsData, setFormsData] = useState<any[]>([]);
@@ -54,7 +59,13 @@ const Contracts = () => {
         showLoader && <Loading />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect={false}
+          />
+        )
       }
       {
         !showError && (
@@ -116,7 +127,7 @@ const Contracts = () => {
 const RootComponent: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <Page
-      section={<Contracts />}
+      section={<Contracts history={history} />}
       activeTab={pageInfo?.name}
       linksData={pageInfo?.path}
       history={history}

@@ -12,7 +12,11 @@ import Error from "../../components/Error";
 
 const pageInfo = state.pages.find((page) => page.name === "Quotes");
 
-const Quotes:React.FC<any> = ({ storeQuoteID, history, storeEditInfo }) => {
+const Quotes:React.FC<any> = ({ 
+  storeQuoteID, 
+  history, 
+  storeEditInfo 
+}) => {
   const [showLoader, setShowLoader] = useState(false);
   const [error, setError] = useState("");
   const [showError, setShowError] = useState(false)
@@ -32,7 +36,11 @@ const Quotes:React.FC<any> = ({ storeQuoteID, history, storeEditInfo }) => {
   useEffect(() =>{
     getQuotesData();
   },[])
-  const handleMoreInfo = async(id:String, quoteID: String, type:String) =>{
+  const handleMoreInfo = async(
+    id:String, 
+    quoteID: String, 
+    type:String
+  ) =>{
     setShowLoader(true);
     storeQuoteID(getID())
     storeEditInfo({
@@ -49,7 +57,13 @@ const Quotes:React.FC<any> = ({ storeQuoteID, history, storeEditInfo }) => {
         showLoader && <Loading />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect={false}
+          />
+        )
       }
       {
         !showError && (
@@ -110,7 +124,11 @@ const Quotes:React.FC<any> = ({ storeQuoteID, history, storeEditInfo }) => {
   );
 }
 
-const RootComponent: React.FC<any> = ({ history, storeQuoteID, storeEditInfo }) => {
+const RootComponent: React.FC<any> = ({ 
+  history, 
+  storeQuoteID, 
+  storeEditInfo 
+}) => {
   return (
     <div>
       <Page

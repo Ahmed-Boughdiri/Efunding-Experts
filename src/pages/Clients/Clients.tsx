@@ -15,7 +15,11 @@ const pageInfo = state.pages.find((page) => page.name === "Clients");
 
 const id = getID();
 
-const Clients: React.FC<any> = ({ storeEditInfoData, storeEditData }) => {
+const Clients: React.FC<any> = ({ 
+  storeEditInfoData, 
+  storeEditData,
+  history
+}) => {
   const [clients,setClients] = useState<any[]>([]);
   const [showLoader, setShowLoader ] = useState(false);
   const [error, setError] = useState("");
@@ -55,7 +59,13 @@ const Clients: React.FC<any> = ({ storeEditInfoData, storeEditData }) => {
         showLoader && <Loading />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect={false}
+          />
+        )
       }
       {
         !showError && (
@@ -125,7 +135,11 @@ interface RootComponentProps extends RouteComponentProps {
   storeEditData: any
 }
 
-const RootComponent: React.FC<RootComponentProps> = ({ history, storeEditInfoData, storeEditData }) => {
+const RootComponent: React.FC<RootComponentProps> = ({ 
+  history, 
+  storeEditInfoData, 
+  storeEditData 
+}) => {
   return (
     <Page
       section={

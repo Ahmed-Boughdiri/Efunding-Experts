@@ -36,7 +36,13 @@ const Home:React.FC<RouteComponentProps> = ({ history }) =>{
                 loading && <Loader />
             }
             {
-                showError && <Error error={error} />
+                showError && (
+                    <Error 
+                        error={error} 
+                        history={history}
+                        loginRedirect={false}
+                    />
+                )
             }
         </div>
     )

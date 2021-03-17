@@ -57,7 +57,13 @@ const Page: React.FC<{
         showLoader && <Loading />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect={false}
+          />
+        )
       }
       {
         !showError && (

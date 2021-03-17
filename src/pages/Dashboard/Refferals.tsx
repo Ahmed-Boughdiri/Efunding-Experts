@@ -22,12 +22,12 @@ const Refferals:React.FC<RefferalsProps> = ({
             </Card.Header>
             <Card.Body>
                 {
-                    !recentRefferals?.length && (
+                    !recentRefferals?.length ? (
                         <h6>There is No Refferals Recorded Yet</h6>
-                    )
+                    ) : (<div></div>)
                 }
                 {
-                    (recentRefferals?.length) && (
+                    (recentRefferals?.length) ? (
                         <Table striped bordered hover>
                             <thead>
                                 <th>Name</th>
@@ -35,7 +35,7 @@ const Refferals:React.FC<RefferalsProps> = ({
                             </thead>
                             <tbody>
                                 {
-                                    (recentRefferals?.length) && 
+                                    (recentRefferals?.length) ? 
                                     recentRefferals.map(rf =>(
                                         <tr>
                                             {
@@ -53,11 +53,11 @@ const Refferals:React.FC<RefferalsProps> = ({
                                                 )
                                             }
                                         </tr>
-                                    ))
+                                    )) : (<div></div>)
                                 }
                             </tbody>
                         </Table>
-                    )
+                    ) : (<div></div>)
                 }
             </Card.Body>
         </Card>

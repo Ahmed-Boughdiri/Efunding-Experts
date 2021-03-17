@@ -115,7 +115,13 @@ const Edit: React.FC<EditProps> = ({
         showLoader && <Loader />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect={false}
+          />
+        )
       }
       {
         !showError && (

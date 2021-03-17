@@ -14,10 +14,15 @@ import Refferals from "./Refferals";
 import getRecentRefferals from "../../global/GetRecentRefferals";
 import getCommision from "../../global/GetCommsion";
 import { RouteComponentProps } from "react-router-dom";
+import { History } from "history";
 
 const pageInfo = state.pages.find((page) => page.name === "Dashboard");
 
-const Dashboard:React.FC = () => {
+interface DashboardPage {
+  history: History
+}
+
+const Dashboard:React.FC<DashboardPage> = ({ history }) => {
   const [recentActivities, setRecentActivities] = useState([]);
   const [recentClients, setRecentClients] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
@@ -82,7 +87,13 @@ const Dashboard:React.FC = () => {
         showLoader && <Loading />
       }
       {
-        showError && <Error error={error} />
+        showError && (
+          <Error 
+            error={error} 
+            history={history}
+            loginRedirect
+          />
+        )
       }
       {
         !showError && (
@@ -130,9 +141,12 @@ const Dashboard:React.FC = () => {
 }
 
 const RootComponent: React.FC<RouteComponentProps> = ({ history }) => {
+  useEffect(() =>{
+    console.log("Page History: ", history)
+  }, [])
   return (
     <Page
-      section={<Dashboard />}
+      section={<Dashboard history={history} />}
       activeTab={pageInfo?.name}
       linksData={pageInfo?.path}
       history={history}

@@ -33,22 +33,43 @@ const Register:React.FC<any> = ({ history }) =>{
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
-    const [phoneNumber, setPhoneNumber] = useState<Number|undefined>(undefined)
+    const [phoneNumber, setPhoneNumber] = 
+        useState<Number|undefined>(undefined)
     const [password, setPassword] = useState("")
     const [confirm, setConfirm] = useState("")
     const [state, setState] = useState("")
     const [city, setCity] = useState("")
-    const [postal, setPostal] = useState<Number|undefined>(undefined)
+    const [postal, setPostal] = 
+        useState<Number|undefined>(undefined)
     const [occupation, setOccupation] = useState("")
-    const [helpingHighScoreClients, setHelpingHighScoreClients] = useState<Boolean| undefined>(undefined)
-    const [fundingPerMonth, setFundingPerMonth] = useState<Number|undefined>(undefined)
-    const [haveExcellentClients, setHaveExcellentClients] = useState<Boolean|undefined>(undefined)
+    const [helpingHighScoreClients, setHelpingHighScoreClients] = 
+        useState<Boolean| undefined>(undefined)
+    const [fundingPerMonth, setFundingPerMonth] = 
+        useState<Number|undefined>(undefined)
+    const [haveExcellentClients, setHaveExcellentClients] = 
+        useState<Boolean|undefined>(undefined)
     const [hearAboutUs, setHearAboutUs] = useState("")
     const [streetAdress, setStreetAdress] = useState("")
     const [showError, setShowError] = useState(false)
     const [error, setError] = useState("");
     const [loader, setLoader] = useState(false)
-    const states = [firstName, lastName, phoneNumber, email, password, confirm, streetAdress, city, state, postal, occupation, hearAboutUs, helpingHighScoreClients, fundingPerMonth, haveExcellentClients];
+    const states = [
+        firstName, 
+        lastName, 
+        phoneNumber, 
+        email, 
+        password, 
+        confirm, 
+        streetAdress, 
+        city, 
+        state, 
+        postal, 
+        occupation, 
+        hearAboutUs, 
+        helpingHighScoreClients, 
+        fundingPerMonth, 
+        haveExcellentClients
+    ];
     const controllers = [
         (e:any) => setFirstName(e.target.value),
         (e:any) => setLastName(e.target.value),
@@ -83,8 +104,10 @@ const Register:React.FC<any> = ({ history }) =>{
         }
         if(occupation) newUser.occupation = occupation
         if(hearAboutUs) newUser.HowDidYouHearAboutUs = hearAboutUs;
-        if(helpingHighScoreClients) newUser.AreYouCurrentlyHelpingClientsWithHighScoresObtainFunding = helpingHighScoreClients
-        if(haveExcellentClients) newUser.HaveYouExcellentHighClientsToReferNow = haveExcellentClients
+        if(helpingHighScoreClients) 
+            newUser.AreYouCurrentlyHelpingClientsWithHighScoresObtainFunding = helpingHighScoreClients
+        if(haveExcellentClients) 
+            newUser.HaveYouExcellentHighClientsToReferNow = haveExcellentClients
         const userError = validateData(newUser);
         if(userError) {
             setLoader(false)
@@ -123,16 +146,52 @@ const Register:React.FC<any> = ({ history }) =>{
                             Highlights of our ISO program are as follows:
                         </h5>
                         <ul>
-                            <li><h5 className="char">Highest payout in the industry</h5></li>
-                            <li><h5 className="char">Funding in form of installments loans. Linesof credit and credit cards. Monthly payment with longer terms.</h5></li>
-                            <li><h5 className="char">Funding quotes returned in 2 hours.(if submitted by 1pm EST,back to you by 3pm)</h5></li>
-                            <li><h5 className="char">Commisions paid every Friday</h5></li>
-                            <li><h5 className="char">Experienced processors with over 8 years experience doing 1,000 of apps per month.</h5></li>
-                            <li><h5 className="char">White label options and volume discounts.</h5></li>
+                            <li>
+                                <h5 className="char">
+                                    Highest payout in the industry
+                                </h5>
+                            </li>
+                            <li>
+                                <h5 className="char">
+                                    Funding in form of installments loans. Linesof credit and credit cards. 
+                                    Monthly payment with longer terms.
+                                </h5>
+                            </li>
+                            <li>
+                                <h5 className="char">
+                                    Funding quotes returned in 2 hours.
+                                    (if submitted by 1pm EST,back to you by 3pm)
+                                </h5>
+                            </li>
+                            <li>
+                                <h5 className="char">
+                                    Commisions paid every Friday
+                                </h5>
+                            </li>
+                            <li>
+                                <h5 className="char">
+                                    Experienced processors with over 8 years experience doing 1,000 of apps per month.
+                                </h5>
+                            </li>
+                            <li>
+                                <h5 className="char">
+                                    White label options and volume discounts.
+                                </h5>
+                            </li>
                         </ul>
                         <Form className="mt-5 pb-3">
                             {
-                                inputsData.map((input, index) => <Input label={input.label} required={input.required} type={input.type} placeholder={input.placeholder} states={states} controllers={controllers} index={index} />)
+                                inputsData.map((input, index) => 
+                                    <Input 
+                                        label={input.label} 
+                                        required={input.required} 
+                                        type={input.type} 
+                                        placeholder={input.placeholder} 
+                                        states={states} 
+                                        controllers={controllers} 
+                                        index={index} 
+                                    />
+                                )
                             }
                         </Form>
                     </Container>
@@ -143,13 +202,20 @@ const Register:React.FC<any> = ({ history }) =>{
                             <Row>
                                 <Col md={6} sm={12}>
                                     <Link to="/">
-                                        <Button variant="light" className="login-button">
+                                        <Button 
+                                            variant="light" 
+                                            className="login-button"
+                                        >
                                             <h6>Already Register? Login</h6>
                                         </Button>
                                     </Link>
                                 </Col>
                                 <Col md={6} sm={12}>
-                                    <Button variant="primary" className="float-right register-button" onClick={submit}>
+                                    <Button 
+                                        variant="primary" 
+                                        className="float-right register-button" 
+                                        onClick={submit}
+                                    >
                                         <h6>Register</h6>
                                     </Button>
                                 </Col>
@@ -159,7 +225,12 @@ const Register:React.FC<any> = ({ history }) =>{
             </Card>
             {
                 showError && (
-                    <Alert variant="danger" className="mt-3 alert-container" dismissible onClose={() =>setShowError(false)}>
+                    <Alert 
+                        variant="danger" 
+                        className="mt-3 alert-container" 
+                        dismissible 
+                        onClose={() =>setShowError(false)}
+                    >
                         { error }
                     </Alert>
                 )
