@@ -1,8 +1,9 @@
 
 export interface ContractsProps {
-    contract: String,
+    contract?: String[],
     contractType: String,
     previewLink: String,
     title: String,
-    _id: String
+    _id: String,
+    dirname?: String
 }

@@ -31,7 +31,7 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
   const [unavailableDownloadLinkMsg, setUnavailableDownloadLinkMsg] = useState("")
   const handleDownloadPDF = (
     e:React.MouseEvent<HTMLAnchorElement>, 
-    contract: String
+    contract: String | undefined
   ) =>{
     e.preventDefault()
     if(contract) {
@@ -39,7 +39,7 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
       setShowUnavailableOnlineVersion(false)
       setUnavailableDownloadLinkMsg("")
       setShowUnavailableDownloadLink(false)
-      window.open(`https://efundingexperts.herokuapp.com/report/download/${contract}`)
+      window.open(`https://efundingexperts-api.herokuapp.com/report/download/${contract}`)
     } else {
       setUnavailableDownloadLinkMsg("Download Link Unavailable")
       setShowUnavailableDownloadLink(true)
@@ -90,7 +90,7 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
                       className="remove-underline"
                       onClick={
                         (e:React.MouseEvent<HTMLAnchorElement>) =>
-                          handleDownloadPDF(e, contract.contract)
+                          handleDownloadPDF(e, contract.dirname)
                       }
                     >
                       <h6 className="text-dark mt-1">Download PDF</h6>
@@ -102,7 +102,7 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
                       className="remove-underline"
                       onClick={
                         (e:React.MouseEvent<HTMLAnchorElement>) =>
-                          handleDownloadPDF(e, contract.contract)
+                          handleDownloadPDF(e, contract.dirname)
                       }
                     >
                       <FontAwesomeIcon
