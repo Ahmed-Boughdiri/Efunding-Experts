@@ -17,7 +17,7 @@ const ApplicationsSection: React.FC<{ applications:ContractsProps[] }> = ({ appl
       setUnavailableMsg("")
       setShowUnavailableOnlineVersion(false)
       setUnavailableOnlineVersionMsg("")
-      window.open(`https://efundingexperts-api.herokuapp.com/download/${fileName}`)
+      window.open(`https://efundingexpertapi.herokuapp.com/download/${fileName}`)
     }
     else {
       setUnavailableMsg("Download Link Unavailable")

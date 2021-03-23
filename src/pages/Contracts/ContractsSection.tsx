@@ -39,7 +39,7 @@ const ContrcatsSection: React.FC<{ contracts:ContractsProps[] }> = ({ contracts 
       setShowUnavailableOnlineVersion(false)
       setUnavailableDownloadLinkMsg("")
       setShowUnavailableDownloadLink(false)
-      window.open(`https://efundingexperts-api.herokuapp.com/report/download/${contract}`)
+      window.open(`https://efundingexpertapi.herokuapp.com/report/download/${contract}`)
     } else {
       setUnavailableDownloadLinkMsg("Download Link Unavailable")
       setShowUnavailableDownloadLink(true)

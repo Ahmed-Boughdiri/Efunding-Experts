@@ -15,7 +15,7 @@ const FormsSection: React.FC<{ forms:ContractsProps[] }> = ({ forms }) => {
       setUnavailableDownloadLinkMsg("")
       setShowUnavailableOnlineVersion(false)
       setUnavailableOnlineVersionMsg("")
-      window.open(`https://efundingexperts-api.herokuapp.com/report/download/${contract}`)
+      window.open(`https://efundingexpertapi.herokuapp.com/report/download/${contract}`)
     } else {
       setUnavailableDownloadLinkMsg("Download Link Unavailable")
       setShowUnavailableDownloadLink(true)
