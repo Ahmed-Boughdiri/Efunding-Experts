@@ -17,7 +17,10 @@ interface MembershipProps {
     storeCourse: any
 }
 
-const Memebership:React.FC<MembershipProps> = ({ storeCourse, history }) =>{
+const Memebership:React.FC<MembershipProps> = ({ 
+    storeCourse, 
+    history 
+}) =>{
     const handlePreview = (e: any, data:any) =>{
         e.preventDefault();
         storeCourse(data);
@@ -29,19 +32,43 @@ const Memebership:React.FC<MembershipProps> = ({ storeCourse, history }) =>{
                 courses.map((course, index) =>(
                     <Accordion className="mb-3">
                         <Card>
-                            <Card.Header className="training-accordion-header" key={index}>
-                                <Accordion.Toggle as={Button} variant="link" eventKey="0" className="training-accordion-toggle">
+                            <Card.Header 
+                                className="training-accordion-header" 
+                                key={index}
+                            >
+                                <Accordion.Toggle 
+                                    as={Button} 
+                                    variant="link" 
+                                    eventKey="0" 
+                                    className="training-accordion-toggle"
+                                >
                                     {course.title}
                                 </Accordion.Toggle>
-                                <FontAwesomeIcon icon={faSortDown} className="training-accordion-header" />
+                                <FontAwesomeIcon 
+                                    icon={faSortDown} 
+                                    className="training-accordion-header" 
+                                />
                             </Card.Header>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
                                     {
                                         course.courses.map((c:any,i:any) =>(
-                                            <div className="training-accordion-link-container mb-2" key={i}>
-                                                <a href="#!" onClick={(event: any) =>handlePreview(event,c)} className="training-video-link">{c.name}</a>
-                                                <FontAwesomeIcon icon={faCaretRight} size="lg" className="training-accordion-arrow" />
+                                            <div 
+                                                className="training-accordion-link-container mb-2" 
+                                                key={i}
+                                            >
+                                                <a 
+                                                    href="#!" 
+                                                    onClick={(event: any) =>handlePreview(event,c)} 
+                                                    className="training-video-link"
+                                                >
+                                                    {c.name}
+                                                </a>
+                                                <FontAwesomeIcon 
+                                                    icon={faCaretRight} 
+                                                    size="lg" 
+                                                    className="training-accordion-arrow" 
+                                                />
                                             </div>
                                         ))
                                     }
