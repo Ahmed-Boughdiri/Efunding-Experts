@@ -16,14 +16,30 @@ const Preview:React.FC<PreviewProps> = ({ courseData }) =>{
         <>
             {
                 (courseData.type === "Download") && (
-                    <Container className="mt-4">
-                        <h2 className="mb-4">{courseData.title}</h2>
+                    <Container 
+                        className="mt-4"
+                    >
+                        <h2 className="mb-4">
+                            {courseData.title}
+                        </h2>
                         <div className="mt-5">
                             {
                                 courseData.lessons.map((l:any, i:any) =>(
-                                    <div key={i} style={{ width: "95%" }}>
+                                    <div 
+                                        key={i} 
+                                        style={{ 
+                                            width: "95%" 
+                                        }}
+                                    >
                                         <h4 className="mb-3">Lesson Title: {l.title}</h4>
-                                        <a href={l.downloadedLink} rel="noreferrer"  target="_blank" className="lesson-download-link btn">Download</a>
+                                        <a 
+                                            href={l.downloadedLink} 
+                                            rel="noreferrer"  
+                                            target="_blank" 
+                                            className="lesson-download-link btn"
+                                        >
+                                            Download
+                                        </a>
                                         <hr className="mb-5" />
                                     </div>
                                 ))
@@ -37,13 +53,28 @@ const Preview:React.FC<PreviewProps> = ({ courseData }) =>{
                     <Container className="mt-4">
                         <h2 className="mb-4">{courseData.title}</h2>
                         {
-                            courseData.content.map((c:any, i:any) => <p className="course-parag" key={i}>{c}</p>)
+                            courseData.content.map((c:any, i:any) => (
+                                <p 
+                                    className="course-parag" 
+                                    key={i}
+                                >
+                                    {c}
+                                </p>
+                            ))
                         }
-                        <div className="mt-5 course-video-container pt-5">
+                        <div 
+                            className="mt-5 course-video-container pt-5"
+                        >
                             {
                                 courseData.videos.map((v:any, i:any) => (
                                     <div key={i}>
-                                        <iframe width="560" title="course-video" height="315" src={`https://www.youtube.com/embed/${v}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                                        <iframe 
+                                            width="560" 
+                                            title="course-video" 
+                                            height="315" 
+                                            src={`https://www.youtube.com/embed/${v}`} 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        ></iframe>
                                         <br />
                                     </div>
                                 ))
