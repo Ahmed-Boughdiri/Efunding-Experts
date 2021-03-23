@@ -8,7 +8,10 @@ import { ContractsProps } from "../../@types/others/contract";
 const ApplicationsSection: React.FC<{ applications:ContractsProps[] }> = ({ applications }) => {
   const [showUnavailable, setShowUnavailable] = useState(false);
   const [unavailableMsg, setUnavailableMsg] = useState("");
-  const handleDownloadPDF = async(e:React.MouseEvent<HTMLAnchorElement>, fileName:String) =>{
+  const handleDownloadPDF = async(
+    e:React.MouseEvent<HTMLAnchorElement>, 
+    fileName:String
+  ) =>{
     if(fileName){
       setShowUnavailable(false)
       setUnavailableMsg("")
@@ -79,7 +82,7 @@ const ApplicationsSection: React.FC<{ applications:ContractsProps[] }> = ({ appl
                     className="remove-underline"
                     onClick={
                       (e:React.MouseEvent<HTMLAnchorElement>) =>
-                        handleDownloadPDF(e, app.contract)
+                        handleDownloadPDF(e, app.dirname || "")
                     }
                   >
                     <h6 className="text-dark mt-1">Download PDF</h6>
@@ -91,7 +94,7 @@ const ApplicationsSection: React.FC<{ applications:ContractsProps[] }> = ({ appl
                     className="remove-underline"
                     onClick={
                       (e:React.MouseEvent<HTMLAnchorElement>) =>
-                        handleDownloadPDF(e, app.contract)
+                        handleDownloadPDF(e, app.dirname || "")
                     }
                   >
                     <FontAwesomeIcon 

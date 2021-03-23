@@ -88,7 +88,7 @@ const FormsSection: React.FC<{ forms:ContractsProps[] }> = ({ forms }) => {
                     className="remove-underline"
                     onClick={
                       (e:React.MouseEvent<HTMLAnchorElement>) => 
-                        handleDownloadPDF(e, form.contract)
+                        handleDownloadPDF(e, form.dirname || "")
                     }
                   >
                     <h6 className="text-dark mt-1">Download PDF</h6>
@@ -100,7 +100,7 @@ const FormsSection: React.FC<{ forms:ContractsProps[] }> = ({ forms }) => {
                     className="remove-underline"
                     onClick={
                       (e:React.MouseEvent<HTMLAnchorElement>) => 
-                        handleDownloadPDF(e, form.contract)
+                        handleDownloadPDF(e, form.dirname || "")
                     }
                   >
                     <FontAwesomeIcon 
