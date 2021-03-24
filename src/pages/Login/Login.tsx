@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import "../../layout/Login.css";
-import { Toast, Container, Form, InputGroup, FormControl, Row, Col, Button, Alert } from "react-bootstrap";
+import { 
+    Toast, 
+    Container, 
+    Form, 
+    InputGroup, 
+    FormControl, 
+    Row, 
+    Col, 
+    Button, 
+    Alert,
+    Image
+} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { faUser,faKey } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +20,8 @@ import login from "../../global/Login";
 import { connect } from "react-redux";
 import { storeID } from "../../util/ManageID";
 import { RouteComponentProps } from "react-router-dom";
+
+import logo from "../../assets/logo.png";
 
 interface LoginProps extends RouteComponentProps {
     id: String
@@ -144,6 +157,11 @@ const Login:React.FC<LoginProps> = ({ history, id }) =>{
                         </Container>
                     </Toast.Header>
                 </Toast>
+            </div>
+            <div className="login-logo">
+                <Image 
+                    src={logo}
+                />
             </div>
         </div>
     )
