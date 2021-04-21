@@ -13,6 +13,8 @@ import Request from "./pages/Request/Request";
 import Membership from "./pages/Membership/Membership";
 import Preview from "./pages/Membership/Preview";
 import Home from "./pages/Home/Home";
+import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/Login" component={Login} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/quotes" component={Quotes} />
         <Route exact path="/dashboard" component={Dashboard} />
@@ -32,6 +34,8 @@ function App() {
         <Route exact path="/request" component={Request} />
         <Route exact path="/membership/training" component={Membership} />
         <Route exact path="/membership/training/preview" component={Preview} />
+        <Route exact path="/password/forget" component={ForgetPassword} />
+        <Route exact path="/password/reset/:id" component={ResetPassword} />
       </Switch>
     </Router>
   );

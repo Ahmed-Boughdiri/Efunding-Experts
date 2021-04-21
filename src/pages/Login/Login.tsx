@@ -113,6 +113,10 @@ const Login:React.FC<LoginProps> = ({ history, id }) =>{
                                     <Col sm={12} md={6}>
                                         <p 
                                             className="text-md-left text-sm-center font-weight-bold text-primary mt-3"
+                                            style={{
+                                                cursor: "pointer"
+                                            }}
+                                            onClick={() =>history.push("/password/forget")}
                                         >
                                             Forget Password ?
                                         </p>
