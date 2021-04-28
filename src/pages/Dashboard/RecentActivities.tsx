@@ -7,8 +7,6 @@ import {
 } from "react-bootstrap";
 import { ClientProps } from "../../@types/others/client";
 
-import chat from "../../assets/chat-mini.jpg";
-
 interface RecentActivitiesProps {
   handleRecentActivities: () => Promise<void>,
   recentActivities: ClientProps[]
@@ -29,10 +27,16 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({
       <Card.Body>
         {
           recentActivities.length ? 
-          recentActivities.map((recent: ClientProps, index: Number) => (
+          recentActivities.map((
+            recent: ClientProps, 
+            index: Number
+          ) => (
             <Row>
               <Col sm={2}>
-                <Image roundedCircle src={chat} />
+                <Image 
+                  roundedCircle 
+                  src={"https://i.imgur.com/5nPYbgv.jpg"} 
+                />
               </Col>
               <Col sm={10}>
                 <Row>
@@ -75,7 +79,9 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({
                           }
                         </>
                       ) : (
-                        <p className="unavailable-note">No Note Sent</p>
+                        <p className="unavailable-note">
+                          No Note Sent
+                        </p>
                       )
                     }
                   </Col>
@@ -95,7 +101,9 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({
               </Col>
             </Row>
           )) : (
-            <h6>There is No Recent Activities Detected Yet</h6>
+            <h6>
+              There is No Recent Activities Detected Yet
+            </h6>
           )
         }
       </Card.Body>

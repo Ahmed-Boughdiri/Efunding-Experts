@@ -21,8 +21,6 @@ import { connect } from "react-redux";
 import { storeID } from "../../util/ManageID";
 import { RouteComponentProps } from "react-router-dom";
 
-import logo from "../../assets/logo.png";
-
 interface LoginProps extends RouteComponentProps {
     id: String
 }
@@ -164,7 +162,7 @@ const Login:React.FC<LoginProps> = ({ history, id }) =>{
             </div>
             <div className="login-logo">
                 <Image 
-                    src={logo}
+                    src={"https://i.imgur.com/GrUZyoc.png"}
                 />
             </div>
         </div>

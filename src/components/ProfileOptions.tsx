@@ -2,8 +2,6 @@ import React from "react";
 import "../layout/ProfileOptions.css";
 import { Image } from "react-bootstrap";
 
-import logout from "../assets/logout.png";
-
 interface ProfileOptionsProps {
     handleLogout: () => void
 }
@@ -17,7 +15,7 @@ const ProfileOptions:React.FC<ProfileOptionsProps>= ({ handleLogout }) =>{
                     onClick={handleLogout}
                 >
                     <Image 
-                        src={logout}
+                        src={"https://i.imgur.com/YH9sbL2.png"}
                         height={27} 
                     />
                     <h4>Logout</h4>

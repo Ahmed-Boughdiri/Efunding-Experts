@@ -1,9 +1,17 @@
 import React,{ useState } from "react";
 import "../../layout/Register.css";
-import { Form, Row, Col, Card, Container, Button, Image, Alert } from "react-bootstrap";
+import { 
+    Form, 
+    Row, 
+    Col, 
+    Card, 
+    Container, 
+    Button, 
+    Image, 
+    Alert 
+} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import Input from "./Input";
 import inputsData from "./InputsData";
 import { register } from "../../global/Register";
@@ -71,21 +79,36 @@ const Register:React.FC<any> = ({ history }) =>{
         haveExcellentClients
     ];
     const controllers = [
-        (e:any) => setFirstName(e.target.value),
-        (e:any) => setLastName(e.target.value),
-        (e:any) => setPhoneNumber(e.target.value),
-        (e:any) => setEmail(e.target.value),
-        (e:any) => setPassword(e.target.value),
-        (e:any) => setConfirm(e.target.value),
-        (e:any) => setStreetAdress(e.target.value),
-        (e:any) => setCity(e.target.value),
-        (e:any) => setState(e.target.value),
-        (e:any) => setPostal(e.target.value),
-        (e:any) => setOccupation(e.target.value),
-        (e:any) => setHearAboutUs(e.target.value),
-        (e:any) => setHelpingHighScoreClients(e.target.id === "1"),
-        (e:any) => setFundingPerMonth(e.target.value),
-        (e:any) => setHaveExcellentClients(e.target.id === "1"),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setFirstName(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setLastName(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setPhoneNumber(+e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setEmail(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setPassword(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setConfirm(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setStreetAdress(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setCity(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setState(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setPostal(+e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setOccupation(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setHearAboutUs(e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setHelpingHighScoreClients(e.target.id === "1"),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setFundingPerMonth(+e.target.value),
+        (e:React.ChangeEvent<HTMLInputElement>) => 
+            setHaveExcellentClients(e.target.id === "1"),
     ]
     const submit = async() =>{
         setLoader(true);
@@ -135,7 +158,11 @@ const Register:React.FC<any> = ({ history }) =>{
                 <Card.Body>
                     <Container>
                         <div className="logo-container">
-                            <Image src={logo} height={60} className="mb-5 d-flex" />
+                            <Image 
+                                src={"https://i.imgur.com/GrUZyoc.png"} 
+                                height={60} 
+                                className="mb-5 d-flex" 
+                            />
                         </div>
                         <h1 className="text-left register-title">Partners</h1>
                         <h4 className="register-desc">
