@@ -36,6 +36,8 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({
                 <Image 
                   roundedCircle 
                   src={"https://i.imgur.com/5nPYbgv.jpg"} 
+                  height={55}
+                  width={55}
                 />
               </Col>
               <Col sm={10}>
